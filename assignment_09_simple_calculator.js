@@ -74,4 +74,87 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+const readlineSync = require('readline-sync');
+
+function addNumbers(a, b) {
+  return a + b;
+}
+
+function subtractNumbers(a, b) {
+  return a - b;
+}
+
+function multiplyNumbers(a, b) {
+  return a * b;
+}
+
+function divideNumbers(a, b) {
+  if (b === 0) {
+    return 'Error: Cannot divide by zero.';
+  }
+  return (a / b).toFixed(2);
+}
+
+function modulusNumbers(a, b) {
+  if (b === 0) {
+    return 'Error: Cannot divide by zero.';
+  }
+  return a % b;
+}
+
+function exponentiateNumbers(a, b) {
+  return a ** b;
+}
+
+function main() {
+  while (true) {
+    console.log('============================');
+    console.log('     SIMPLE CALCULATOR');
+    console.log('============================');
+    console.log('1. Addition');
+    console.log('2. Subtraction');
+    console.log('3. Multiplication');
+    console.log('4. Division');
+    console.log('5. Modulus');
+    console.log('6. Exponentiation');
+    console.log('7. Quit');
+
+    const choice = readlineSync.questionInt('Select an operation (1-7): ');
+
+    if (choice === 7) {
+      console.log('Goodbye!');
+      break;
+    }
+
+    const firstNumber = readlineSync.questionFloat('Enter first number: ');
+    const secondNumber = readlineSync.questionFloat('Enter second number: ');
+
+    let result;
+
+    if (choice === 1) {
+      result = addNumbers(firstNumber, secondNumber);
+      console.log(`Result: ${firstNumber} + ${secondNumber} = ${result}`);
+    } else if (choice === 2) {
+      result = subtractNumbers(firstNumber, secondNumber);
+      console.log(`Result: ${firstNumber} - ${secondNumber} = ${result}`);
+    } else if (choice === 3) {
+      result = multiplyNumbers(firstNumber, secondNumber);
+      console.log(`Result: ${firstNumber} * ${secondNumber} = ${result}`);
+    } else if (choice === 4) {
+      result = divideNumbers(firstNumber, secondNumber);
+      console.log(`Result: ${firstNumber} / ${secondNumber} = ${result}`);
+    } else if (choice === 5) {
+      result = modulusNumbers(firstNumber, secondNumber);
+      console.log(`Result: ${firstNumber} % ${secondNumber} = ${result}`);
+    } else if (choice === 6) {
+      result = exponentiateNumbers(firstNumber, secondNumber);
+      console.log(`Result: ${firstNumber} ** ${secondNumber} = ${result}`);
+    } else {
+      console.log('Invalid choice. Please try again.');
+    }
+  }
+}
+
+main();
+
 
